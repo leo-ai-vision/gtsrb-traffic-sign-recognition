@@ -1,0 +1,21 @@
+# PyCharm
+.idea/
+
+# Python缓存
+__pycache__/
+*.pyc
+
+# 数据集
+data/
+
+# 模型权重
+checkpoints/
+*.pth
+*.pt
+
+# 训练日志
+runs/
+
+# 本地环境
+.venv/
+venv/
