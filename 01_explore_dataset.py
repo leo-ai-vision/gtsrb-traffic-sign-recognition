@@ -9,10 +9,18 @@ from src.dataset import (
     split_gtsrb_samples
 )
 
+# 根据当前文件位置确定项目目录
+PROJECT_DIR = Path(__file__).resolve().parent
 
-train_dir = Path(
-    r"D:\python\traffic-sign-adversarial-robustness\data\GTSRB_Final_Training_Images\GTSRB\Final_Training\Images"
+train_dir = (
+    PROJECT_DIR
+    / "data"
+    / "GTSRB_Final_Training_Images"
+    / "GTSRB"
+    / "Final_Training"
+    / "Images"
 )
+
 # 扫描数据集并建立样本信息
 image_paths, labels, group_ids = collect_gtsrb_samples(train_dir)
 

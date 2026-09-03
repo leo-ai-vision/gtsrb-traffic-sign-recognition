@@ -2,7 +2,8 @@ from PIL import Image
 from torch.utils.data import Dataset
 from pathlib import Path
 import random
-
+import csv
+from src.model import build_resnet18
 
 class GTSRBDataset(Dataset):
 
@@ -125,3 +126,38 @@ def split_gtsrb_samples(
         val_image_paths,
         val_labels
     )
+
+# 读取GTSRB官方测试集图片路径和标签
+def collect_gtsrb_test_samples(test_image_dir, test_csv_path):
+    test_image_dir = Path(test_image_dir)
+    test_csv_path = Path(test_csv_path)
+
+    if not test_image_dir.exists():
+        raise FileNotFoundError(
+            f"找不到测试图片目录：{test_image_dir}"
+        )
+
+    if not test_csv_path.exists():
+        raise FileNotFoundError(
+            f"找不到测试标签文件：{test_csv_path}"
+        )
+
+    image_paths = []
+    labels = []
+
+    # CSV文件使用分号分隔
+    with test_csv_path.open(
+        mode="r",
+        encoding="utf-8-sig",
+        newline=""
+    ) as csv_file:
+        reader = csv.DictReader(csv_file, delimiter=";")
+
+        for row in reader:
+            image_path = test_image_dir / row["Filename"]
+            label = int(row["ClassId"])
+
+            image_paths.append(image_path)
+            labels.append(label)
+
+    return image_paths, labels
