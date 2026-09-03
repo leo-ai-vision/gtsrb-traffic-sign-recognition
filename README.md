@@ -55,8 +55,8 @@ traffic-sign-adversarial-robustness/
 推荐使用 Python 3.10 或更高版本。
 
 ```bash
-git clone <你的GitHub仓库地址>
-cd traffic-sign-adversarial-robustness
+git clone https://github.com/leo-ai-vision/gtsrb-traffic-sign-recognition.git
+cd gtsrb-traffic-sign-recognition
 pip install -r requirements.txt
 ```
 
