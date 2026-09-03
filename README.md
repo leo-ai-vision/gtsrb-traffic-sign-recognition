@@ -178,7 +178,20 @@ python predict.py --image data/GTSRB_Final_Test_Images/GTSRB/Final_Test/Images/0
 
 ## 模型权重
 
-模型权重文件没有直接上传到Git仓库。运行以下命令训练后，会在 `checkpoints` 目录中生成最佳模型：
+模型权重文件没有直接上传到 Git 仓库。
+
+如需重新训练模型，运行：
 
 ```bash
 python train.py
+```
+
+也可以直接从 Release 下载训练完成的 ResNet18 模型：
+
+[下载 best_resnet18.pth](https://github.com/leo-ai-vision/gtsrb-traffic-sign-recognition/releases/download/v1.0.0/best_resnet18.pth)
+
+下载后放到以下位置：
+
+```text
+checkpoints/best_resnet18.pth
+```
