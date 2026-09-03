@@ -31,7 +31,7 @@
 ## 项目结构
 
 ```text
-traffic-sign-adversarial-robustness/
+gtsrb-traffic-sign-recognition/
 ├── data/                         # GTSRB数据集（不上传GitHub）
 ├── checkpoints/                  # 模型权重（不上传GitHub）
 ├── results/
